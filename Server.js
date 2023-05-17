@@ -13,6 +13,7 @@ const port = process.env.PORT || 3500;
 
 //middleware for sending json
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 // imports all controller CRUD Routs....
 app.use("/" , route);
