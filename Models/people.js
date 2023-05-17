@@ -1,32 +1,18 @@
 const mongoose = require("mongoose");
 
 ///// collection inputs structure
-const info = mongoose.Schema({
-        firstname : {
+const GoalSchema = mongoose.Schema(
+    {
+        text: {
             type: String,
-            require:true,
-        },
-        lastname:{
-            type : String,
-            require:true
-        },
-
-        age:{
-            type: Number,
-            require:true
-        },
-
-        email:{
-            type: String,
-            require:true
-        },
-        timestamp:{
-            type: Date,
-            require:true
+            require:[true , "please Enter a text value"]
         }
-
-});
+    },  
+{
+        timestamps:true
+}
+);
 ////////////// MangoDB collection name and info submitted
-const People = mongoose.model("Persons" , info);
+const People = mongoose.model("Goals" , GoalSchema);
 
 module.exports = People;
