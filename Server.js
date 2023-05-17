@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const People = require("./Models/people");
 require('dotenv').config();
 const route = require('./controllers/controllers');
-
+const user = require('./controllers/authcontrol');
 
 const port = process.env.PORT || 3500;
 
@@ -16,7 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // imports all controller CRUD Routs....
-app.use("/" , route);
+app.use("/Api" , route);
+app.use("/Auth" , user);
 
 
 ////connects to mongodb
